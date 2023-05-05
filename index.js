@@ -1,6 +1,7 @@
 import { Server, Socket } from "socket.io";
 import express from 'express'
 import { createServer } from "http";
+import path from "path";
 import Connection from "./database/db.js";
 import {getDocument,updateDocument} from './controller/documentController.js'
 import {fileURLToPath} from 'url';
