@@ -1,9 +1,12 @@
 import { Server, Socket } from "socket.io";
 import express from 'express'
-import path from "path";
 import { createServer } from "http";
 import Connection from "./database/db.js";
 import {getDocument,updateDocument} from './controller/documentController.js'
+import {fileURLToPath} from 'url';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 const PORT = process.env.PORT || 9000;
 Connection();
@@ -18,6 +21,7 @@ app.get("*", function (_, res) {
     }
   );
 });
+
 
 const httpServer = createServer(app)
 httpServer.listen(PORT)
