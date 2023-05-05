@@ -1,0 +1,19 @@
+{
+  "name": "index",
+  "version": "1.0.0",
+  "description": "Server",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "author": "Utkarsh Saini",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2",
+    "http": "0.0.1-security",
+    "mongoose": "^7.0.3",
+    "nodemon": "^2.0.22",
+    "socket.io": "^4.6.1"
+  }
+}
