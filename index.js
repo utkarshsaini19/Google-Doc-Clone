@@ -1,5 +1,6 @@
 import { Server, Socket } from "socket.io";
 import express from 'express'
+import path from "path";
 import { createServer } from "http";
 import Connection from "./database/db.js";
 import {getDocument,updateDocument} from './controller/documentController.js'
@@ -8,7 +9,15 @@ const PORT = process.env.PORT || 9000;
 Connection();
 
 const app = express()
-app.use(express.static('client/build'))
+app.use(express.static(path.join(__dirname, "./client/build")));
+app.get("*", function (_, res) {
+  res.sendFile(
+    path.join(__dirname, "./client/build/index.html"),
+    function (err) {
+      res.status(500).send(err);
+    }
+  );
+});
 
 const httpServer = createServer(app)
 httpServer.listen(PORT)
